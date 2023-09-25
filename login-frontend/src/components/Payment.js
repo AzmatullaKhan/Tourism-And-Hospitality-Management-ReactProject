@@ -1,8 +1,15 @@
 import { useNavigate } from "react-router-dom";
-import { bookingDetails } from "./Book";
+import { bookingHotelDetails, bookingUSerDetails } from "./Book";
 
 export const PaymentPage = () =>{
     const navigate = useNavigate();
+    const handleNumberOfDays = () =>{
+        var start = document.getElementById('fromDateOfHotelPayment');
+        var to = document.getElementById('toDateOfHotelPayment')
+        console.log(start.value-to.value)
+        // var days=document.getElementById('daysOfHotelPayment')
+        // days.textContent=to-start
+    }
     const handleBack= ()=>{
         navigate('/book')
     }
@@ -15,26 +22,27 @@ export const PaymentPage = () =>{
     function getTodayDate() {
         const today = new Date();
         const year = today.getFullYear();
-        const month = String(today.getMonth() + 1).padStart(2, '0'); // January is 0
+        const month = String(today.getMonth() + 1).padStart(2, '0');
         const day = String(today.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
       }
-      let today=getTodayDate();
-    let {nameHotel, placeHotel, stateHotel, costPerNightHotel}= bookingDetails;   
+    //   let today=getTodayDate();
+    let {nameHotel, placeHotel, stateHotel, costPerNightHotel}= bookingHotelDetails;
+    let {nameOfPerson, MobileNumOfPerson, numberOfPeopleHotel}= bookingUSerDetails;
     return(
         <div className="payment-main center">
             <div className="payment-mini-main ">
             <   div className="center">
                     <label htmlFor="nameOfCustomerPayment">_NAME: </label>
-                    <input type="text" className="payment-input glow" value={"name"} readOnly id="nameOfCustomerPayment"></input>
+                    <input type="text" className="payment-input glow" value={nameOfPerson} readOnly id="nameOfCustomerPayment"></input>
                 </div>
                 <div className="center">
                     <label htmlFor="numberOfCustomerPayment">PH_NO: </label>
-                    <input type="text" className="payment-input glow" value={"mobile numbers"} readOnly id="numberOfHotelPayment"></input>
+                    <input type="text" className="payment-input glow" value={MobileNumOfPerson} readOnly id="numberOfCustomerPayment"></input>
                 </div>
                 <div className="center">
-                    <label htmlFor="memberOfCustomerPayment">_MEM_: </label>
-                    <input type="text" className="payment-input glow" value={"mobile numbers"} readOnly id="memberOfHotelPayment"></input>
+                    <label htmlFor="membersOfCustomerPayment">_MEM_: </label>
+                    <input type="text" className="payment-input glow" value={numberOfPeopleHotel} readOnly id="membersOfCustomerPayment"></input>
                 </div>
                 <div className="center">
                     <label htmlFor="nameOfHotelPayment">HOTEL: </label>
@@ -54,11 +62,11 @@ export const PaymentPage = () =>{
                 </div>
                 <div className="center">
                     <label htmlFor="fromDateOfHotelPayment">_FROM: </label>
-                    <input type="date" className="payment-input glow" min={getTodayDate()} value={today} id="fromDateOfHotelPayment"></input>
+                    <input type="date" className="payment-input glow" min={getTodayDate()} id="fromDateOfHotelPayment"></input>
                 </div>
                 <div className="center">
                     <label htmlFor="toDateOfHotelPayment">__TO_: </label>
-                    <input type="date" className="payment-input glow" min={getTodayDate()} id="toDateOfHotelPayment"></input>
+                    <input type="date" className="payment-input glow" min={getTodayDate()}  id="toDateOfHotelPayment" onChange={handleNumberOfDays}></input>
                 </div>
                 <div className="center">
                     <label htmlFor="daysOfHotelPayment">_DAYS: </label>

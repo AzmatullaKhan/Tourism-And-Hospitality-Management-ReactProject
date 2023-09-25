@@ -2,17 +2,28 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom"
 
 import './zcss.css'
-export let bookingDetails;
+export let bookingHotelDetails;
+export let bookingUSerDetails;
 export const BookPage =()=>{
+    const [ booking, setBook ] =useState({});
+    const handleChangeDetails=(e)=>{
+        setBook({
+            ...booking,
+            [e.target.id]:[e.target.value]
+        })
+    }
     const navigate= useNavigate()
     const handleBack= () =>{
         navigate('/');
     }
     const handleProceedToPay = ()=>{
-        if(!bookingDetails)
+        if(!(bookingHotelDetails))
             alert('Enter valid id')
-        else
+        else{
+            let {nameOfPerson, MobileNumOfPerson, numberOfPeopleHotel}=booking
+            bookingUSerDetails={nameOfPerson, MobileNumOfPerson, numberOfPeopleHotel}
             navigate('/payment');
+        }
     }
     const [ hotelId, setHotelId ]= useState({});
     const handleChangeID = (e) =>{
@@ -22,13 +33,6 @@ export const BookPage =()=>{
         });
     }
 const handleClick =  async() =>{
-    var name=document.getElementById('name');
-    var state=document.getElementById('state');
-    var place=document.getElementById('place');
-    var rooms=document.getElementById('rooms');
-    var rating=document.getElementById('rating');
-    var cost=document.getElementById('cost');
-
     const response =await fetch('http://localhost:5000/hotelServer/find', {
         method: 'POST',
         body: JSON.stringify(hotelId),
@@ -37,8 +41,16 @@ const handleClick =  async() =>{
         }
     })
     const data = await response.json();
+    var name=document.getElementById('name');
+    var state=document.getElementById('state');
+    var place=document.getElementById('place');
+    var rooms=document.getElementById('rooms');
+    var rating=document.getElementById('rating');
+    var cost=document.getElementById('cost');
+
     let {nameHotel, placeHotel, stateHotel, totalAvailableRoomsHotel, costPerNightHotel, ratingHotel}= data;
-    bookingDetails={nameHotel, placeHotel, stateHotel, totalAvailableRoomsHotel, costPerNightHotel, ratingHotel}
+    bookingHotelDetails={nameHotel, placeHotel, stateHotel, totalAvailableRoomsHotel, costPerNightHotel, ratingHotel}
+
    if(!(nameHotel || placeHotel || stateHotel || totalAvailableRoomsHotel)){
        name.textContent="Name of the Hotel:  unidentified";
        state.textContent="State of the Hotel:  unidentified";
@@ -75,15 +87,15 @@ const handleClick =  async() =>{
                                     <p id='rating'>Total Rating given:</p>
                                     <div className='flex'>
                                         <label htmlFor='nameOfPerson'>Name of customer:</label>
-                                        <input type='text' className='book-input' id='nameOfPerson' placeholder='Name of customer'></input>
+                                        <input type='text' className='book-input' id='nameOfPerson' placeholder='Name of customer' onChange={handleChangeDetails}></input>
                                     </div>
                                     <div className='flex'>
                                         <label htmlFor='mobileNumOfPerson'>Phone num of customer:</label>
-                                        <input type='text' className='book-input' id='MobileNumOfPerson' placeholder='Mobile Number'></input>
+                                        <input type='text' className='book-input' id='MobileNumOfPerson' placeholder='Mobile Number' onChange={handleChangeDetails}></input>
                                     </div>
                                     <div className='flex'>
                                         <label htmlFor='numberOfPeopleHotel'>Number of members:</label>
-                                        <input type='text' className='book-input' id='numberOfPeopleHotel' placeholder='Number of people including kids'></input>
+                                        <input type='text' className='book-input' id='numberOfPeopleHotel' placeholder='Number of people including kids' onChange={handleChangeDetails}></input>
                                     </div>
                                 </div>
                                 <button className='glow' onClick={handleBack}>Back</button>
