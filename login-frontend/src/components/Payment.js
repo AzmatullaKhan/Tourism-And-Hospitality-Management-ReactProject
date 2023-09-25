@@ -4,11 +4,12 @@ import { bookingHotelDetails, bookingUSerDetails } from "./Book";
 export const PaymentPage = () =>{
     const navigate = useNavigate();
     const handleNumberOfDays = () =>{
-        var start = document.getElementById('fromDateOfHotelPayment');
-        var to = document.getElementById('toDateOfHotelPayment')
-        console.log(start.value-to.value)
-        // var days=document.getElementById('daysOfHotelPayment')
-        // days.textContent=to-start
+        var start = new Date(document.getElementById('fromDateOfHotelPayment').value);
+        var to = new Date(document.getElementById('toDateOfHotelPayment').value)
+        var months=String(to.getMonth()+1)-String(start.getMonth()+1)
+        var days=String(to.getDate())-String(start.getDate());
+        document.getElementById('daysOfHotelPayment').value=(months+" months "+days +" days");
+        document.getElementById('totalCostOfHotelPayment').value=(String(30*(months)+days)*(document.getElementById('costOfHotelPayment').value))+ " rupees only";
     }
     const handleBack= ()=>{
         navigate('/book')
@@ -26,7 +27,6 @@ export const PaymentPage = () =>{
         const day = String(today.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
       }
-    //   let today=getTodayDate();
     let {nameHotel, placeHotel, stateHotel, costPerNightHotel}= bookingHotelDetails;
     let {nameOfPerson, MobileNumOfPerson, numberOfPeopleHotel}= bookingUSerDetails;
     return(
@@ -61,8 +61,11 @@ export const PaymentPage = () =>{
                     <input type="text" className="payment-input glow" value={costPerNightHotel} readOnly id="costOfHotelPayment"></input>
                 </div>
                 <div className="center">
+                    <h1>Enter the data below this....</h1>
+                </div>
+                <div className="center">
                     <label htmlFor="fromDateOfHotelPayment">_FROM: </label>
-                    <input type="date" className="payment-input glow" min={getTodayDate()} id="fromDateOfHotelPayment"></input>
+                    <input type="date" className="payment-input glow" min={getTodayDate()} id="fromDateOfHotelPayment" onChange={handleNumberOfDays}></input>
                 </div>
                 <div className="center">
                     <label htmlFor="toDateOfHotelPayment">__TO_: </label>
@@ -70,7 +73,11 @@ export const PaymentPage = () =>{
                 </div>
                 <div className="center">
                     <label htmlFor="daysOfHotelPayment">_DAYS: </label>
-                    <input type="text" className="payment-input glow" value={"Total no.of days"} id="daysOfHotelPayment" readOnly></input>
+                    <input type="text" className="payment-input glow" value={"0"} id="daysOfHotelPayment" readOnly></input>
+                </div>
+                <div className="center">
+                    <label htmlFor="totalCostOfHotelPayment">TOTAL: </label>
+                    <input type="text" className="payment-input glow" value={"0 rupees"} id="totalCostOfHotelPayment" readOnly></input>
                 </div>
                 <div className="center">
                     <button className="glow" onClick={handlePay}>PAY</button>                    
