@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { bookingHotelDetails, bookingUSerDetails } from "./Book";
+import { useState } from "react";
 
 export const PaymentPage = () =>{
+    
     const navigate = useNavigate();
     const handleNumberOfDays = () =>{
         var start = new Date(document.getElementById('fromDateOfHotelPayment').value);
@@ -17,8 +19,35 @@ export const PaymentPage = () =>{
     const handleHome= ()=>{
         navigate('/')
     }
-    const handlePay= ()=>{
-        alert('payment done')
+    let {nameHotel, placeHotel, stateHotel, costPerNightHotel}= bookingHotelDetails;
+    let {nameOfPerson, MobileNumOfPerson, numberOfPeopleHotel}= bookingUSerDetails;
+    const [paymentForm, setPaymentForm]= useState({});
+    function setPaymentFormDetails(){
+        setPaymentForm({
+            ...paymentForm,
+            nameOfCustomerPayment:String(nameOfPerson), numberOfCustomerPayment:String(MobileNumOfPerson), 
+            membersOfCustomerPayment:String(numberOfPeopleHotel), nameOfHotelPayment:String(nameHotel), 
+            stateOfHotelPayment:String(stateHotel), placeOfHotelPayment:String(placeHotel), 
+            costOfHotelPayment:String(costPerNightHotel), 
+            fromDateOfHotelPayment:String(document.getElementById('fromDateOfHotelPayment').value), 
+            toDateOfHotelPayment:String(document.getElementById('toDateOfHotelPayment').value), 
+            daysOfHotelPayment:String(document.getElementById('daysOfHotelPayment').value), 
+            totalCostOfHotelPayment:String(document.getElementById('totalCostOfHotelPayment').value)
+        })
+    }
+    const handleConfirm= ()=>{
+        document.getElementById('PaymentPay').style.display='block';
+        setPaymentFormDetails();
+    }
+    const handlePay= async()=>{
+        await fetch("http://localhost:5000/paymentServer/addPayment",{
+        method: 'POST',
+        body: JSON.stringify(paymentForm),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+        })
+        navigate('/')
     }
     function getTodayDate() {
         const today = new Date();
@@ -27,8 +56,6 @@ export const PaymentPage = () =>{
         const day = String(today.getDate()).padStart(2, '0');
         return `${year}-${month}-${day}`;
       }
-    let {nameHotel, placeHotel, stateHotel, costPerNightHotel}= bookingHotelDetails;
-    let {nameOfPerson, MobileNumOfPerson, numberOfPeopleHotel}= bookingUSerDetails;
     return(
         <div className="payment-main center">
             <div className="payment-mini-main ">
@@ -73,14 +100,15 @@ export const PaymentPage = () =>{
                 </div>
                 <div className="center">
                     <label htmlFor="daysOfHotelPayment">_DAYS: </label>
-                    <input type="text" className="payment-input glow" value={"0"} id="daysOfHotelPayment" readOnly></input>
+                    <input type="text" className="payment-input glow" id="daysOfHotelPayment" readOnly></input>
                 </div>
                 <div className="center">
                     <label htmlFor="totalCostOfHotelPayment">TOTAL: </label>
-                    <input type="text" className="payment-input glow" value={"0 rupees"} id="totalCostOfHotelPayment" readOnly></input>
+                    <input type="text" className="payment-input glow" id="totalCostOfHotelPayment" readOnly></input>
                 </div>
                 <div className="center">
-                    <button className="glow" onClick={handlePay}>PAY</button>                    
+                    <button className="glow" onClick={handleConfirm}>Confirm</button>                    
+                    <button className="glow" onClick={handlePay} id='PaymentPay' style={{display:"none"}}>PAY</button>
                  </div>
                  <button onClick={handleBack}>back</button>
                  <button onClick={handleHome}>home</button>

@@ -5,6 +5,7 @@ import mongoose from "mongoose";
 import LoginRouter from "./routes/login-route.js";
 import SignUpRouter from "./routes/signUp-route.js";
 import hotelRouter from "./routes/hotel-routes.js";
+import paymentRouter from "./routes/payment-route.js";
 const server=express()
 const port=5000;
 
@@ -20,7 +21,7 @@ mongoose.connect(url).then(()=>{server.listen(port)})
 server.use('/loginServer', LoginRouter);
 server.use('/signUpServer', SignUpRouter);
 server.use('/hotelServer', hotelRouter)
-
+server.use('/paymentServer', paymentRouter);
 // server.post("/", (req, res)=>{
 //     console.log(req.body);
 //     res.json(req.body);
