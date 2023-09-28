@@ -6,12 +6,10 @@ export const PaymentPage = () =>{
     
     const navigate = useNavigate();
     const handleNumberOfDays = () =>{
-        var start = new Date(document.getElementById('fromDateOfHotelPayment').value);
-        var to = new Date(document.getElementById('toDateOfHotelPayment').value)
-        var months=String(to.getMonth()+1)-String(start.getMonth()+1)
-        var days=String(to.getDate())-String(start.getDate());
-        document.getElementById('daysOfHotelPayment').value=(months+" months "+days +" days");
-        document.getElementById('totalCostOfHotelPayment').value=(String(30*(months)+days)*(document.getElementById('costOfHotelPayment').value))+ " rupees only";
+        document.getElementById('paymentPay').style.display='none';
+        document.getElementById('paymentConfirm').style.display='block';
+        document.getElementById('daysOfHotelPayment').value="Error";
+        document.getElementById('totalCostOfHotelPayment').value="Error";
     }
     const handleBack= ()=>{
         navigate('/book')
@@ -20,6 +18,7 @@ export const PaymentPage = () =>{
         navigate('/')
     }
     let {nameHotel, placeHotel, stateHotel, costPerNightHotel}= bookingHotelDetails;
+    let indianCostPerNight= costPerNightHotel;
     let {nameOfPerson, MobileNumOfPerson, numberOfPeopleHotel}= bookingUSerDetails;
     const [paymentForm, setPaymentForm]= useState({});
     function setPaymentFormDetails(){
@@ -36,7 +35,35 @@ export const PaymentPage = () =>{
         })
     }
     const handleConfirm= ()=>{
-        document.getElementById('PaymentPay').style.display='block';
+        var start = new Date(document.getElementById('fromDateOfHotelPayment').value);
+        var to = new Date(document.getElementById('toDateOfHotelPayment').value)
+        // var months=String(to.getMonth()+1)-String(start.getMonth()+1)
+        var days=String(to.getDate())-String(start.getDate());
+        if(to.getMonth()>=start.getMonth()){
+            if(to.getMonth()>start.getMonth()){
+                if(to.getMonth()===1 && start.getMonth()===1)
+                    days=days+((to.getMonth()-start.getMonth())*28);
+                else 
+                    days=days+((to.getMonth()-start.getMonth())*30);
+            }
+            if(to.getDate()<=start.getDate() && to.getMonth()===start.getMonth()){
+                alert('please verify the date again to continue');
+                document.getElementById('daysOfHotelPayment').value="Error";
+                document.getElementById('totalCostOfHotelPayment').value="Error";
+            }
+            else{
+                // days=days((to.getMonth()-start.getMonth()+2)*30);months+" months "+
+                document.getElementById('daysOfHotelPayment').value=(days +" days");
+                document.getElementById('totalCostOfHotelPayment').value=new Intl.NumberFormat('en-IN').format((String(days)*costPerNightHotel))+ " rupees only";
+                document.getElementById('paymentPay').style.display='block';
+                document.getElementById('paymentConfirm').style.display='none';
+            }
+        }
+        else{
+            document.getElementById('daysOfHotelPayment').value="Error";
+            document.getElementById('totalCostOfHotelPayment').value="Error";
+            alert('please verify the date again to continue');
+        }
         setPaymentFormDetails();
     }
     const handlePay= async()=>{
@@ -85,7 +112,7 @@ export const PaymentPage = () =>{
                 </div>
                 <div className="center">
                     <label htmlFor="costOfHotelPayment">_COST: </label>
-                    <input type="text" className="payment-input glow" value={costPerNightHotel} readOnly id="costOfHotelPayment"></input>
+                    <input type="text" className="payment-input glow" value={new Intl.NumberFormat('en-IN').format(indianCostPerNight)} readOnly id="costOfHotelPayment"></input>
                 </div>
                 <div className="center">
                     <h1>Enter the data below this....</h1>
@@ -107,8 +134,8 @@ export const PaymentPage = () =>{
                     <input type="text" className="payment-input glow" id="totalCostOfHotelPayment" readOnly></input>
                 </div>
                 <div className="center">
-                    <button className="glow" onClick={handleConfirm}>Confirm</button>                    
-                    <button className="glow" onClick={handlePay} id='PaymentPay' style={{display:"none"}}>PAY</button>
+                    <button className="glow" onClick={handleConfirm} id="paymentConfirm">Confirm</button>                    
+                    <button className="glow" onClick={handlePay} id='paymentPay' style={{display:"none"}}>PAY</button>
                  </div>
                  <button onClick={handleBack}>back</button>
                  <button onClick={handleHome}>home</button>

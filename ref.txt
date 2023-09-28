@@ -345,3 +345,9 @@ document.getElementById('submit-button').onclick = async () => {
   });
   // ... Do something with the response
 }
+
+
+ new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR',
+    });
