@@ -78,6 +78,7 @@ button{
   color: #fff;
   border-style: solid;
   font-family: 'Courier New', Courier, monospace;
+  background-color: black;
   font-size: 16px;
   box-sizing: border-box;
   position: -webkit-sticky;
@@ -223,4 +224,89 @@ p{
   border-radius: 12px;
   padding: 0px 18px 0px 18px;
   box-sizing: border-box;
+}
+.payment-head{
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
+  /* font-weight: 500; */
+}
+.about-main{
+  background-color:black;
+  height:180vh;
+  width:99vw;
+  padding:40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-mini-main{
+  width:85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.about-display{
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  padding:30px;
+}
+.about-details{
+  height:240px;
+  width:300px;
+  margin: 12px;
+  text-align: center;
+  padding-top:12px;
+  box-sizing: border-box;
+}
+.about-all{
+  border-radius: 200px;
+  border: #fff;
+  border-style: solid;
+  height:200px;
+  width:200px;
+  margin: 12px;
+}
+.about-pic1{
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  width:100px;
+  background-image: url('./images/azmatulla.jpg');
+  background-size: cover;
+  border-radius: 120px;
+}
+.about-pic2{
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  width:100px;
+  background-image: url('./images/santhosh.jpg');
+  background-size: cover;
+  border-radius: 120px;
+}
+.about-pic3{
+  margin-left: auto;
+  margin-right: auto;
+  height: 100px;
+  width:100px;
+  background-image: url('./images/balaji.jpg');
+  background-size: cover;
+  border-radius: 120px;
+}
+a{
+  color:#fff;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  text-decoration: none ;
+}
+.about-groupLogo{
+  height:300px;
+  width:300px;
+  border-radius: 300px;
+  border-color: #fff;
+  border-style: solid;
+  margin:12px 0px 34px 0px;
 }
