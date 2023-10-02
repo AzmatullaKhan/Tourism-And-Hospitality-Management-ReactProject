@@ -65,7 +65,7 @@ button{
 }
 .home-main{
   background-color:black;
-  height:100vh;
+  height:110vh;
   width:99vw;
   padding:20px;
   box-sizing: border-box;
@@ -86,6 +86,7 @@ button{
   top: 0;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 32px;
 }
 .home-button{
   border-color:transparent;
@@ -309,4 +310,55 @@ a{
   border-color: #fff;
   border-style: solid;
   margin:12px 0px 34px 0px;
+}
+.state-main{
+  height:400px;
+  width:100%;
+  /* border-style: solid;
+  border-color: #fff; */
+  box-sizing: border-box;
+  padding:4px;
+}
+.state-holder-main{
+  height: 320px;
+  width: 100%;
+  /* border-style: solid;
+  border-color: #fff;  */
+  box-sizing: border-box;
+  display:flex;
+  justify-content: center;
+}
+.state-holder-mini{
+  height:auto;
+  width:100%;
+  /* border-style: solid;
+  border-color: #fff; */
+  box-sizing: border-box;
+  padding:4px;
+  display:flex;
+  justify-content: center;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  transition: scroll 0.4s ease-in-out;
+  margin: 12px -16px 12px -16px;
+}
+.state-holder-mini::-webkit-scrollbar {
+  display: none;
+}
+.image{
+  height:232px;
+  width:236px;
+  border-radius: 12px;
+  margin:auto 12px auto 12px;
+}
+.nav-btn {
+  color: #fff;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  background-color:transparent;
+  border-radius: 6px;
+  height: 94%;
 }
