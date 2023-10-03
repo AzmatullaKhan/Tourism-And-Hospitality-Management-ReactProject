@@ -7,9 +7,43 @@ import trialElements from "./Data"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 export const Home = () =>{
-    const sliderTrail1Ref = useRef(null);
-    const sliderTrail2Ref = useRef(null);
+    // const sliderTrail1Ref = useRef(null);
+    // const sliderTrail2Ref = useRef(null);
     const scrollAmount = 248;
+ 
+    const StateHolder=(elements, name)=>{
+        let nameRef="slider"+name+"Ref";
+        nameRef=useRef(null);
+        return(
+                <div className="state-main">
+                    <center><h1>{name}</h1></center>
+                    <div className="state-mini-main">
+                        <button className="nav-btn"
+                            onClick={() => {
+                            const container = nameRef.current;
+                            container.scrollLeft -= scrollAmount; 
+                            }}
+                            >
+                            <ChevronLeftIcon />
+                        </button>
+                        <div className="state-mini" ref={nameRef}>
+                                {elements.map((element) => (
+                                <img src={element.pic} alt={element.id} className="image"/>
+                                ))}
+                        </div>
+                        <button className="nav-btn"
+                            onClick={() => {
+                            const container = nameRef.current;
+                            container.scrollLeft += scrollAmount; 
+                            }}
+                            >
+                            <ChevronRightIcon />
+                        </button>
+                    </div>
+                </div>
+        )
+    }
+
     function navFunction() {
         var x = document.getElementById("navbarr");
         var y = document.getElementById("nav");
@@ -61,58 +95,9 @@ export const Home = () =>{
                     </div>
                 </div>
                 <center>
-                    <div className="state-main">
-                        <center><h1>Trail1</h1></center>
-                        <div className="state-mini-main">
-                            <button className="nav-btn"
-                                onClick={() => {
-                                const container = sliderTrail1Ref.current;
-                                container.scrollLeft -= scrollAmount; 
-                                }}
-                                >
-                                <ChevronLeftIcon />
-                            </button>
-                            <div className="state-mini" ref={sliderTrail1Ref}>
-                                    {trialElements.map((element) => (
-                                    <img src={element.pic} alt={element.id} className="image"/>
-                                    ))}
-                            </div>
-                            <button className="nav-btn"
-                                onClick={() => {
-                                const container = sliderTrail1Ref.current;
-                                container.scrollLeft += scrollAmount; 
-                                }}
-                                >
-                                <ChevronRightIcon />
-                            </button>
-                        </div>
-                    </div>
-                    <div className="state-main">
-                        <center><h1>Trail2</h1></center>
-                        <div className="state-mini-main">
-                            <button className="nav-btn"
-                                onClick={() => {
-                                const container = sliderTrail2Ref.current;
-                                container.scrollLeft -= scrollAmount;
-                                }}
-                                >
-                                <ChevronLeftIcon />
-                            </button>
-                            <div className="state-mini" ref={sliderTrail2Ref}>
-                                    {trialElements.map((element) => (
-                                    <img src={element.pic} alt={element.id} className="image"/>
-                                    ))}
-                            </div>
-                            <button className="nav-btn"
-                                onClick={() => {
-                                const container = sliderTrail2Ref.current;
-                                container.scrollLeft += scrollAmount; 
-                                }}
-                                >
-                                <ChevronRightIcon />
-                            </button>
-                        </div>
-                    </div>
+                    {StateHolder(trialElements, "Trail1")}
+                    {StateHolder(trialElements, "Trail2")}
+                    {StateHolder(trialElements, "Trail3")}
                 </center>
             </div>
         </div>
