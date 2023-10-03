@@ -67,7 +67,7 @@ button{
   background-color:black;
   height:100vh;
   width:100vw;
-  padding:20px;
+  padding:0 20px 20px 20px;
   box-sizing: border-box;
   overflow: scroll;
 }
@@ -317,19 +317,19 @@ a{
 }
 .state-main{
   height: 380px;
-  width: 94%;
+  width: 100%;
   /* border-style: solid;
   border-color: #fff;  */
   box-sizing: border-box;
 }
 .state-mini-main{
   height:300px;
-  width:94%;
+  width:100%;
   /* border-style: solid;
   border-color: #fff; */
   box-sizing: border-box;
   padding:8px;
-  margin:12px 30px 10px 30px;
+  margin:12px 10px 10px 10px;
   box-sizing: border-box;
   display: flex;
 }
@@ -367,4 +367,53 @@ a{
   width:50px;
   /* border-style: solid;
   border-color: #fff; */
+}
+.image-c{
+  height:500px;
+  max-width: 550px
+}
+.carousel-main{
+  height: 700px;
+  width: 100%;
+  /* border-style: solid;
+  border-color: #fff;  */
+  box-sizing: border-box;
+  margin:0px 0px 50px 0px;
+}
+.carousel-mini-main{
+  height:680px;
+  width:99%;
+  /* border-style: solid;
+  border-color: #fff; */
+  box-sizing: border-box;
+  padding:8px;
+  margin:12px 10px 10px 10px;
+  box-sizing: border-box;
+  display: flex;
+}
+.carousel-mini{
+  height:640px;
+  width:100%;
+  /* border-style: solid;
+  border-color: #fff; */
+  box-sizing: border-box;
+  padding:4px;
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  transition: scroll 0.4s ease-in-out;
+}
+.carousel-mini::-webkit-scrollbar {
+  display: none;
+}
+.carousel-image{
+  height:600px;
+  width:60vw;
+  margin: 6px;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+  box-sizing: border-box;
 }

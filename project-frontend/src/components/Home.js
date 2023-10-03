@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom"
 import { getData, handleLogout, isLoggedIn } from "./Login"
 import './zcss.css'
 import { useRef } from "react"
-import trialElements from "./Data"
+import trialElements, { carouselElements } from "./Data"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 export const Home = () =>{
-    // const sliderTrail1Ref = useRef(null);
+     const carouselRef= useRef(null);
     // const sliderTrail2Ref = useRef(null);
     const scrollAmount = 248;
  
@@ -16,7 +16,7 @@ export const Home = () =>{
         nameRef=useRef(null);
         return(
                 <div className="state-main">
-                    <center><h1>{name}</h1></center>
+                    <h1 style={{textAlign:"left", padding:"0px 0px 0px 120px"}}>{name}</h1>
                     <div className="state-mini-main">
                         <button className="nav-btn"
                             onClick={() => {
@@ -94,10 +94,40 @@ export const Home = () =>{
                         <button className="home-button glow icon" id="nav" onClick={navFunction}>click</button>
                     </div>
                 </div>
-                <center>
-                    {StateHolder(trialElements, "Trail1")}
-                    {StateHolder(trialElements, "Trail2")}
-                    {StateHolder(trialElements, "Trail3")}
+                <div className="carousel-main">
+                    <div className="carousel-mini-main">
+                        <button className="nav-btn"
+                            onClick={() => {
+                            const container = carouselRef.current;
+                            container.scrollLeft -= scrollAmount; 
+                            }}
+                            >
+                            <ChevronLeftIcon />
+                        </button>
+                        <div className="carousel-mini" ref={carouselRef}>
+                                {carouselElements.map((element) => (
+                                <li key={element.id}>
+                                    <div style={{backgroundImage:`url(${element.pic})`}} className="carousel-image">
+                                        <h1 style={{backgroundColor:"#000", width:"24px", height:"28px"}}>#{element.id}</h1>
+                                        <div className="carosel-image-desc">
+                                            <h1>about</h1>
+                                        </div>
+                                    </div>
+                                </li>
+                                ))}
+                        </div>
+                        <button className="nav-btn"
+                            onClick={() => {
+                            const container = carouselRef.current;
+                            container.scrollLeft += scrollAmount; 
+                            }}
+                            >
+                            <ChevronRightIcon />
+                        </button>
+                    </div>
+                </div>
+                <center>   
+                    {StateHolder(trialElements, "🔥 Trending in Andhra Pradesh")}
                 </center>
             </div>
         </div>
