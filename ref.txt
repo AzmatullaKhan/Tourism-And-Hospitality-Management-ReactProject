@@ -351,3 +351,70 @@ document.getElementById('submit-button').onclick = async () => {
         style: 'currency',
         currency: 'INR',
     });
+
+
+
+
+
+
+
+
+
+
+    <center>
+                    <div className="state-main">
+                        <center><h1>Trial1</h1></center>
+                        <button className="nav-btn"
+                                onClick={() => {
+                                const container = sliderTrail1Ref.current;
+                                container.scrollLeft -= scrollAmount; // Scroll left by the specified amount
+                                }}
+                                >
+                                <ChevronLeftIcon />
+                            </button>
+                        <div className="state-holder-main">
+                            
+                            <div className="state-holder-mini" ref={sliderTrail1Ref}>
+                                {trialElements.map((element) => (
+                                <img src={element.pic} alt={element.id} className="image"/>
+                                ))}
+                            </div>
+                            
+                            <button className="nav-btn"
+                                onClick={() => {
+                                const container = sliderTrail1Ref.current;
+                                container.scrollLeft += scrollAmount; // Scroll left by the specified amount
+                                }}
+                                >
+                                <ChevronRightIcon />
+                            </button>
+                        </div>
+                    </div>
+                    <div className="state-main">
+                        <center><h1>Trial2</h1></center>
+                        <div className="state-holder-main">
+                            <button className="nav-btn"
+                                onClick={() => {
+                                const container = sliderTrail2Ref.current;
+                                container.scrollLeft -= scrollAmount; // Scroll left by the specified amount
+                                }}
+                                >
+                                <ChevronLeftIcon />
+                            </button>
+                            <div className="state-holder-mini" ref={sliderTrail2Ref}>
+                                {trialElements.map((element) => (
+                                <img src={element.pic} alt={element.id} className="image"/>
+                                ))}
+                            </div>
+                            
+                            <button className="nav-btn"
+                                onClick={() => {
+                                const container = sliderTrail2Ref.current;
+                                container.scrollLeft += scrollAmount; // Scroll left by the specified amount
+                                }}
+                                >
+                                <ChevronRightIcon />
+                            </button>
+                        </div>
+                    </div>
+                </center>

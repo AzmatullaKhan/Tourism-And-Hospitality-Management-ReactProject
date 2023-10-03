@@ -1,15 +1,15 @@
 // import { useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import { getData, handleLogout, isLoggedIn } from "./Login"
-import trialElements from "./Data"
 import './zcss.css'
 import { useRef } from "react"
+import trialElements from "./Data"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 export const Home = () =>{
     const sliderTrail1Ref = useRef(null);
     const sliderTrail2Ref = useRef(null);
-    const scrollAmount = 256;
+    const scrollAmount = 248;
     function navFunction() {
         var x = document.getElementById("navbarr");
         var y = document.getElementById("nav");
@@ -60,60 +60,60 @@ export const Home = () =>{
                         <button className="home-button glow icon" id="nav" onClick={navFunction}>click</button>
                     </div>
                 </div>
-                <div className="state-main">
-                    <center><h1>Trial1</h1></center>
-                    <div className="state-holder-main">
-                        <button className="nav-btn"
-                            onClick={() => {
-                            const container = sliderTrail1Ref.current;
-                            container.scrollLeft -= scrollAmount; // Scroll left by the specified amount
-                            }}
-                            >
-                            <ChevronLeftIcon />
-                        </button>
-                        <div className="state-holder-mini" ref={sliderTrail1Ref}>
-                            {trialElements.map((element) => (
-                            <img src={element.pic} alt={element.id} className="image"/>
-                            ))}
+                <center>
+                    <div className="state-main">
+                        <center><h1>Trail1</h1></center>
+                        <div className="state-mini-main">
+                            <button className="nav-btn"
+                                onClick={() => {
+                                const container = sliderTrail1Ref.current;
+                                container.scrollLeft -= scrollAmount; 
+                                }}
+                                >
+                                <ChevronLeftIcon />
+                            </button>
+                            <div className="state-mini" ref={sliderTrail1Ref}>
+                                    {trialElements.map((element) => (
+                                    <img src={element.pic} alt={element.id} className="image"/>
+                                    ))}
+                            </div>
+                            <button className="nav-btn"
+                                onClick={() => {
+                                const container = sliderTrail1Ref.current;
+                                container.scrollLeft += scrollAmount; 
+                                }}
+                                >
+                                <ChevronRightIcon />
+                            </button>
                         </div>
-                        
-                        <button className="nav-btn"
-                            onClick={() => {
-                            const container = sliderTrail1Ref.current;
-                            container.scrollLeft += scrollAmount; // Scroll left by the specified amount
-                            }}
-                            >
-                            <ChevronRightIcon />
-                        </button>
                     </div>
-                </div>
-                <div className="state-main">
-                    <center><h1>Trial2</h1></center>
-                    <div className="state-holder-main">
-                        <button className="nav-btn"
-                            onClick={() => {
-                            const container = sliderTrail2Ref.current;
-                            container.scrollLeft -= scrollAmount; // Scroll left by the specified amount
-                            }}
-                            >
-                            <ChevronLeftIcon />
-                        </button>
-                        <div className="state-holder-mini" ref={sliderTrail2Ref}>
-                            {trialElements.map((element) => (
-                            <img src={element.pic} alt={element.id} className="image"/>
-                            ))}
+                    <div className="state-main">
+                        <center><h1>Trail2</h1></center>
+                        <div className="state-mini-main">
+                            <button className="nav-btn"
+                                onClick={() => {
+                                const container = sliderTrail2Ref.current;
+                                container.scrollLeft -= scrollAmount;
+                                }}
+                                >
+                                <ChevronLeftIcon />
+                            </button>
+                            <div className="state-mini" ref={sliderTrail2Ref}>
+                                    {trialElements.map((element) => (
+                                    <img src={element.pic} alt={element.id} className="image"/>
+                                    ))}
+                            </div>
+                            <button className="nav-btn"
+                                onClick={() => {
+                                const container = sliderTrail2Ref.current;
+                                container.scrollLeft += scrollAmount; 
+                                }}
+                                >
+                                <ChevronRightIcon />
+                            </button>
                         </div>
-                        
-                        <button className="nav-btn"
-                            onClick={() => {
-                            const container = sliderTrail2Ref.current;
-                            container.scrollLeft += scrollAmount; // Scroll left by the specified amount
-                            }}
-                            >
-                            <ChevronRightIcon />
-                        </button>
                     </div>
-                </div>
+                </center>
             </div>
         </div>
        

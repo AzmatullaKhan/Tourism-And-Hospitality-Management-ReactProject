@@ -1,5 +1,5 @@
 import express from 'express'
-import { addPayment, getAllPayment, getPaymentOnNumber } from '../controllers/payment-controllers';
+import { addPayment, getAllPayment, getPaymentOnNumber } from '../controllers/payment-controllers.js';
 
 const paymentRouter= express.Router();
 
