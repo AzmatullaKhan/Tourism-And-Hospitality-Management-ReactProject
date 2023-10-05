@@ -28,7 +28,14 @@ export const Home = () =>{
                         </button>
                         <div className="state-mini" ref={nameRef}>
                                 {elements.map((element) => (
-                                <img src={element.pic} alt={element.id} className="image"/>
+                                <>
+                                <div className="show-desc">
+                                    <img src={element.pic} alt={element.id} className="image"/>
+                                    <div className="hidden-desc">{element.desc}</div>
+                                </div>
+                                {/* <img src={require("./images/back.png")} className="image-back" alt="back"/> */}
+                                </>
+                                
                                 ))}
                         </div>
                         <button className="nav-btn"

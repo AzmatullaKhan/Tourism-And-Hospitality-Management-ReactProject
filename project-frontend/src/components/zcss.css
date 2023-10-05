@@ -354,6 +354,32 @@ a{
   border-radius: 12px;
   margin:auto 12px auto 12px;
 }
+.image-back{
+  height:222px;
+  width:226px;
+  border-radius: 12px;
+  margin:auto 12px auto 12px;
+}
+.show-desc{
+  display: flex;
+  /* background-color: #fff; */
+}
+.hidden-desc{
+  background-color: #fff;
+  border-radius: 6px;
+  height:260px;
+  width:290px;
+  border-radius: 12px;
+  margin:auto 12px auto 12px;
+  display: none;
+}
+.image:hover{
+  ~.hidden-desc{
+    display: block;
+  }
+  height:260px;
+  width:290px;
+}
 .nav-btn {
   color: #fff;
   border: none;
