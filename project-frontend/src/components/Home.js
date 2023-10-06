@@ -6,9 +6,15 @@ import { useRef } from "react"
 import trialElements, { carouselElements } from "./Data"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+export let desc1;
 export const Home = () =>{
+    const clickHandler=(element)=>{
+        const {id,  pic, desc, nameHotel, placeHotel, stateHotel, totalAvailableRoomsHotel, costPerNightHotel, ratingHotel, url}=(element);
+         desc1={id,  pic, desc, nameHotel, placeHotel, stateHotel, totalAvailableRoomsHotel, costPerNightHotel, ratingHotel, url}
+        navigate('/bookPage')
+        console.log(desc1);
+    }
      const carouselRef= useRef(null);
-    // const sliderTrail2Ref = useRef(null);
     const scrollAmount = 248;
  
     const StateHolder=(elements, name)=>{
@@ -29,11 +35,12 @@ export const Home = () =>{
                         <div className="state-mini" ref={nameRef}>
                                 {elements.map((element) => (
                                 <>
-                                <div className="show-desc">
+                                <div className="show-desc" onClick={() => clickHandler(element)}>
                                     <img src={element.pic} alt={element.id} className="image"/>
-                                    <div className="hidden-desc">{element.desc}</div>
+                                    <div className="hidden-desc">
+                                        <h1 style={{backgroundColor:"black"}}>{element.desc}</h1>
+                                    </div>
                                 </div>
-                                {/* <img src={require("./images/back.png")} className="image-back" alt="back"/> */}
                                 </>
                                 
                                 ))}
@@ -73,20 +80,19 @@ export const Home = () =>{
     const handleData = ()=>{
         alert(d);
     }
-    const handleBook = () =>{
-        navigate('/book')
-    }
     const handleAbout=()=>{
         navigate('/about')
     }
+    // const handleBookPage=()=>{
+    //     navigate('./bookPage')
+    // }
     return(
         <div>
             <div className="home-main">
                 <div className="navbar" id="navbarr">
                     <button className="home-button">LOGO</button>
                     <div>
-                        <button className="home-button glow" onClick={handleBook}>Book</button>
-                        <button className="home-button glow">help</button>
+                        {/* <button className="home-button glow" onClick={handleBookPage}>Book</button> */}
                         {
                             isLoggedIn?
                             (<button className="home-button glow" onClick={handleLogout}>LogOut</button>):
@@ -98,6 +104,7 @@ export const Home = () =>{
                             (<button className="home-button glow" onClick={handleSignIn}>SignIn</button>)
                         }
                         <button className="home-button glow" onClick={handleAbout}>about</button>
+                        <button className="home-button glow">help</button>
                         <button className="home-button glow icon" id="nav" onClick={navFunction}>click</button>
                     </div>
                 </div>
@@ -134,7 +141,7 @@ export const Home = () =>{
                     </div>
                 </div>
                 <center>   
-                    {StateHolder(trialElements, "🔥 Trending in Andhra Pradesh")}
+                    {StateHolder(trialElements, "Andhra Pradesh")}
                 </center>
             </div>
         </div>

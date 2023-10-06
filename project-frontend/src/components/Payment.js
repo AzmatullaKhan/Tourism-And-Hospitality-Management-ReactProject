@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { bookingHotelDetails, bookingUSerDetails } from "./Book";
+import { bookingUSerDetails } from "./BookPage";
 import { useState } from "react";
+import { desc1 } from "./Home";
 
 export const PaymentPage = () =>{
     
@@ -17,7 +18,7 @@ export const PaymentPage = () =>{
     const handleHome= ()=>{
         navigate('/')
     }
-    let {nameHotel, placeHotel, stateHotel, costPerNightHotel}= bookingHotelDetails;
+    let {nameHotel, placeHotel, stateHotel, costPerNightHotel}= desc1;
     let indianCostPerNight= costPerNightHotel;
     let {nameOfPerson, MobileNumOfPerson, numberOfPeopleHotel}= bookingUSerDetails;
     const [paymentForm, setPaymentForm]= useState({});

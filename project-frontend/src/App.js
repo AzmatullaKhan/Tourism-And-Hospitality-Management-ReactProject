@@ -1,4 +1,3 @@
-import { BookPage } from './components/Book';
 import { Home } from './components/Home';
 import LoginPage from './components/Login'
 import SignUpPage from './components/SignUp'
@@ -6,6 +5,7 @@ import React from 'react';
 import {Routes, Route} from 'react-router-dom';
 import { PaymentPage } from './components/Payment';
 import { AboutPage } from './components/About';
+import { BookPage1 } from './components/BookPage';
 
 function App() {
   return (
@@ -13,9 +13,9 @@ function App() {
       <Routes>
         <Route path="/signUp" element={<SignUpPage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
-        <Route path='/book' element={<BookPage />}/>
         <Route path='/payment' element={<PaymentPage />} />
         <Route path='/about' element={<AboutPage />}/>
+        <Route path='/bookPage' element={<BookPage1 />}></Route>
         <Route path='/' element={<Home />}></Route>
       </Routes>
     </div>
