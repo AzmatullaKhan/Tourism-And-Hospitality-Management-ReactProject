@@ -86,6 +86,9 @@ export const Home = () =>{
     // const handleBookPage=()=>{
     //     navigate('./bookPage')
     // }
+    const handleHelp=()=>[
+        navigate('/help')
+    ]
     return(
         <div>
             <div className="home-main">
@@ -104,7 +107,7 @@ export const Home = () =>{
                             (<button className="home-button glow" onClick={handleSignIn}>SignIn</button>)
                         }
                         <button className="home-button glow" onClick={handleAbout}>about</button>
-                        <button className="home-button glow">help</button>
+                        <button className="home-button glow" onClick={handleHelp}>help</button>
                         <button className="home-button glow icon" id="nav" onClick={navFunction}>click</button>
                     </div>
                 </div>
