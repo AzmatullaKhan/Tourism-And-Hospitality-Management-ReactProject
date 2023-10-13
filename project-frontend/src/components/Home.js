@@ -6,7 +6,6 @@ import { useRef } from "react"
 import trialElements, { carouselElements } from "./Data"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 export let desc1;
 export const Home = () =>{
     const clickHandler=(element)=>{
@@ -121,8 +120,8 @@ export const Home = () =>{
             <div className="home-main">
                 <div className="navbar" id="navbarr">
                     <button className="home-button" onClick={handleHomeClick}>LOGO</button>
-                    <div>
-                        <img src={SearchSharpIcon} alt="search-icon"/>
+                    <div style={{display:"flex"}}>
+                        <img src={require("./images/search.png")} style={{height:"32px", width:"32px", marginTop:"18px"}} alt="search-icon"/>
                         <input type="text" placeholder="Search here" className="home-search" onKeyUp={search}></input>
                     </div>
                     <div>
