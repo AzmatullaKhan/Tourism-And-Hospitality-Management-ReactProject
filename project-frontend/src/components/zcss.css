@@ -1,5 +1,5 @@
 .main{
-  background-color:black;
+  background-image: linear-gradient(#fc987c, #ccbfd1 ,#93e3d9 );
   height:100vh;
   width:100vw;
   display: flex;
@@ -12,7 +12,8 @@
   border-radius:8px;
   border-width:1px;
   border-color:#fff;
-  color:#fff;
+  background-color: #ccbfd1;
+  color:#000;
   height:360px;
   width:400px;
   padding:20px;
@@ -22,6 +23,7 @@
 label{
   font-size:20px;
   font-family: 'Courier New', Courier, monospace; 
+  color:#000
 }
 input{
   background-color: transparent;
@@ -57,14 +59,14 @@ button{
   border-width: 1px;
   height:30px;
   min-width:60px;
-  color: #fff;
+  color:#000;
   border-style: solid;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 16px;
+  font-size: 18px;
   margin:12px
 }
 .home-main{
-  background-color:black;
+  background-image: linear-gradient(#fc987c, #ccbfd1 ,#93e3d9 );
   height:100vh;
   width:100vw;
   padding:0 20px 20px 20px;
@@ -75,25 +77,27 @@ button{
   display: none;
 }
 .navbar{
-  border-color:#fff;
+  border-color:transparent;
   border-width: 1px;
   height:60px;
-  width:100%;
+  width:100%;;
   color: #fff;
   border-style: solid;
   font-family: 'Courier New', Courier, monospace;
-  background-color: black;
+  
+  /* background-color:linear-gradient( #a7d7d7,#dbb6d0,#aed1d5)   ; */
   font-size: 16px;
   box-sizing: border-box;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: 20px;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 32px;
+  margin:20px 0px 32px 0px;
 }
 .home-button{
   border-color:transparent;
+  color:#fff
 }
 
 .navbar .icon {
@@ -129,6 +133,9 @@ h1{
   font-size: 20px;
   font-family: 'Courier New', Courier, monospace;
 }
+.home-search{
+  margin-top:12px;
+}
 .book-main{
   background-color:black;
   height:100vh;
@@ -149,6 +156,10 @@ h1{
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+li{
+   list-style-type: circle;
+   color:transparent;
 }
 .book-mini-mini1{
   height:100%;
@@ -237,14 +248,15 @@ p{
   /* font-weight: 500; */
 }
 .about-main{
-  background-color:black;
-  height:200vh;
-  width:99vw;
+  background-image: linear-gradient(#fc987c, #ccbfd1 ,#93e3d9,#fc987c, #ccbfd1 ,#93e3d9 );
+  height:180vh;
+  width:100vw;
   padding:40px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 .about-mini-main{
   width:85%;
@@ -384,16 +396,17 @@ a{
 .image:hover{
   ~.hidden-desc{
     display: block;
-    margin:auto 12px auto 12px;
+    margin:-12px 12px auto 12px;
 
   }
   border-color: #fff;
   border-style: solid;
   border-width:3px ;
-  margin:auto 12px auto -36px;
+  margin:-12px 12px auto -5px;
   height:260px;
   width:290px;
 }
+
 .nav-btn {
   color: #fff;
   border: none;
@@ -410,7 +423,7 @@ a{
 }
 .image-c{
   height:500px;
-  max-width: 550px
+  max-width: 550px;
 }
 .carousel-main{
   height: 700px;
@@ -456,6 +469,7 @@ a{
   justify-content: space-between;
   padding: 12px;
   box-sizing: border-box;
+  border-radius:12px ;
 }
 .help-main{
   background-color:black;

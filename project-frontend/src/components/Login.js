@@ -47,9 +47,9 @@ const LoginPage = () =>{
     }
     return(
         <div>
-            <div className="main glow">
+            <div className="main">
                 <form>
-                    <div className='mini-main glow'>
+                    <div className='mini-main'>
                         <div style={{margin:"8px 12px 20px 12px"}} className=''>
                             <label htmlFor='email'>Email</label><br></br>
                             <input type="text" id="email" name='emailSignUp' onChange={change}></input>
@@ -59,8 +59,8 @@ const LoginPage = () =>{
                             <input type="password" id='password' name='passwordSignUp' onChange={change}></input>
                         </div>
                         <center >
-                            <button className='glow' type='submit' onClick={loginClick}>Login</button>
-                            <button className='glow' onClick={navigateToSignUp} type='submit'>SignUp</button><br></br>
+                            <button className='' type='submit' onClick={loginClick}>Login</button>
+                            <button className='' onClick={navigateToSignUp} type='submit'>SignUp</button><br></br>
                         </center>
                     </div>
                 </form>

@@ -12,7 +12,6 @@ export const Home = () =>{
         const {id,  pic, desc, nameHotel, placeHotel, stateHotel, totalAvailableRoomsHotel, costPerNightHotel, ratingHotel, url}=(element);
          desc1={id,  pic, desc, nameHotel, placeHotel, stateHotel, totalAvailableRoomsHotel, costPerNightHotel, ratingHotel, url}
         navigate('/bookPage')
-        console.log(desc1);
     }
      const carouselRef= useRef(null);
     const scrollAmount = 248;
@@ -34,14 +33,14 @@ export const Home = () =>{
                         </button>
                         <div className="state-mini" ref={nameRef}>
                                 {elements.map((element) => (
-                                <>
+                                <li key={element.id}>
                                 <div className="show-desc" onClick={() => clickHandler(element)}>
                                     <img src={element.pic} alt={element.id} className="image"/>
                                     <div className="hidden-desc">
                                         <h1 style={{backgroundColor:"black"}}>{element.desc}</h1>
                                     </div>
                                 </div>
-                                </>
+                                </li>
                                 
                                 ))}
                         </div>
@@ -86,29 +85,32 @@ export const Home = () =>{
     // const handleBookPage=()=>{
     //     navigate('./bookPage')
     // }
-    const handleHelp=()=>[
+    const handleHelp=()=>{
         navigate('/help')
-    ]
+    }
     return(
         <div>
             <div className="home-main">
                 <div className="navbar" id="navbarr">
                     <button className="home-button">LOGO</button>
                     <div>
+                        <input type="text" placeholder="Search here" className="home-search"></input>
+                    </div>
+                    <div>
                         {/* <button className="home-button glow" onClick={handleBookPage}>Book</button> */}
                         {
                             isLoggedIn?
-                            (<button className="home-button glow" onClick={handleLogout}>LogOut</button>):
-                            (<button className="home-button glow" onClick={handleLogin}>Login</button>)
+                            (<button className="home-button" onClick={handleLogout}>LogOut</button>):
+                            (<button className="home-button" onClick={handleLogin}>Login</button>)
                         }
                         {
                             isLoggedIn? 
-                            (<button className="home-button glow" onClick={handleData}>Profile</button>):
-                            (<button className="home-button glow" onClick={handleSignIn}>SignIn</button>)
+                            (<button className="home-button " onClick={handleData}>Profile</button>):
+                            (<button className="home-button " onClick={handleSignIn}>SignIn</button>)
                         }
-                        <button className="home-button glow" onClick={handleAbout}>about</button>
-                        <button className="home-button glow" onClick={handleHelp}>help</button>
-                        <button className="home-button glow icon" id="nav" onClick={navFunction}>click</button>
+                        <button className="home-button " onClick={handleAbout}>about</button>
+                        <button className="home-button " onClick={handleHelp}>help</button>
+                        <button className="home-button  icon" id="nav" onClick={navFunction}>click</button>
                     </div>
                 </div>
                 <div className="carousel-main">
