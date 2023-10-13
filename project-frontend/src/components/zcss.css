@@ -54,7 +54,7 @@ input{
 }
 button{
   background-color: transparent;
-  /* outline: none; */
+  outline: none;
   border-color:#fff transparent #fff transparent ;
   border-width: 1px;
   height:30px;
@@ -131,6 +131,11 @@ button{
 h1{
   color:#fff;
   font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+}
+h2{
+  color:#000;
+  font-size: 26px;
   font-family: 'Courier New', Courier, monospace;
 }
 .home-search{
@@ -333,6 +338,7 @@ a{
   width: 100%;
   /* border-style: solid;
   border-color: #fff;  */
+  display: block;
   box-sizing: border-box;
 }
 .state-mini-main{
@@ -365,8 +371,8 @@ a{
   height:222px;
   width:226px;
   border-radius: 12px;
-  margin:auto 12px auto 12px;
-  transition: all 0.2s ease-in-out;
+  margin:auto 12px auto 12px; 
+  transition: all 0.2s ease-in-out 0s;
   cursor: pointer;
 }
 .image-back{
@@ -432,6 +438,7 @@ a{
   border-color: #fff;  */
   box-sizing: border-box;
   margin:0px 0px 50px 0px;
+  display: block;
 }
 .carousel-mini-main{
   height:680px;

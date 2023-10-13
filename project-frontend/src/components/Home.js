@@ -6,6 +6,7 @@ import { useRef } from "react"
 import trialElements, { carouselElements } from "./Data"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import SearchSharpIcon from '@mui/icons-material/SearchSharp';
 export let desc1;
 export const Home = () =>{
     const clickHandler=(element)=>{
@@ -21,7 +22,7 @@ export const Home = () =>{
         nameRef=useRef(null);
         return(
                 <div className="state-main">
-                    <h1 style={{textAlign:"left", padding:"0px 0px 0px 120px"}}>{name}</h1>
+                    <h2 style={{textAlign:"left", padding:"0px 0px 0px 120px"}}>{name}</h2>
                     <div className="state-mini-main">
                         <button className="nav-btn"
                             onClick={() => {
@@ -69,6 +70,9 @@ export const Home = () =>{
         }
       }
     const navigate = useNavigate();
+    const handleHomeClick=()=>{
+        window.location.reload()
+    }
     const handleLogin = () =>{
         navigate('/login');
     }
@@ -88,13 +92,38 @@ export const Home = () =>{
     const handleHelp=()=>{
         navigate('/help')
     }
+    const search=(e)=>{
+        const search=e.target.value.toUpperCase();
+        const items=document.getElementById('states-list')
+        const product=document.querySelectorAll(".state-main")
+        const pname=items.getElementsByTagName("h2");
+        for(var i=0;i<pname.length;i++){
+            let match=product[i].getElementsByTagName('h2')[0];
+            if(match){
+                let textValue=match.innerHTML
+                if(textValue.toUpperCase().indexOf(search)>-1){
+                    product[i].style.display=""
+                    document.getElementById('carousel-main').style.display="none"
+                }
+                else{
+                    product[i].style.display="none"
+                    document.getElementById('carousel-main').style.display="none"
+                }
+                if(search===""){
+                    document.getElementById('carousel-main').style.display=""
+
+                }
+            }
+        }
+    }
     return(
         <div>
             <div className="home-main">
                 <div className="navbar" id="navbarr">
-                    <button className="home-button">LOGO</button>
+                    <button className="home-button" onClick={handleHomeClick}>LOGO</button>
                     <div>
-                        <input type="text" placeholder="Search here" className="home-search"></input>
+                        <img src={SearchSharpIcon} alt="search-icon"/>
+                        <input type="text" placeholder="Search here" className="home-search" onKeyUp={search}></input>
                     </div>
                     <div>
                         {/* <button className="home-button glow" onClick={handleBookPage}>Book</button> */}
@@ -113,7 +142,7 @@ export const Home = () =>{
                         <button className="home-button  icon" id="nav" onClick={navFunction}>click</button>
                     </div>
                 </div>
-                <div className="carousel-main">
+                <div className="carousel-main" id="carousel-main">
                     <div className="carousel-mini-main">
                         <button className="nav-btn"
                             onClick={() => {
@@ -145,9 +174,12 @@ export const Home = () =>{
                         </button>
                     </div>
                 </div>
-                <center>   
-                    {StateHolder(trialElements, "Andhra Pradesh")}
-                </center>
+                <div id="states-list">
+                    <center>   
+                        {StateHolder(trialElements, "Andhra Pradesh1")}
+                        {StateHolder(trialElements, "T Pradesh2")}
+                    </center>
+                </div>
             </div>
         </div>
        
