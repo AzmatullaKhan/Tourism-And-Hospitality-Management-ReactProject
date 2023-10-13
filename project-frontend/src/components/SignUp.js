@@ -74,9 +74,9 @@ const SignUpPage = () =>{
     }
     return(
         <div>
-            <div className="main glow">
+            <div className="main ">
                 <form>
-                    <div className='mini-main glow'>
+                    <div className='mini-main '>
                         <div style={{margin:"8px 12px 16px 12px"}}>
                             <label htmlFor='name'>Name</label><br></br>
                             <input type="text" id="name" name='name' onChange={change}></input>
@@ -90,8 +90,8 @@ const SignUpPage = () =>{
                             <input type="password" id='passwordSignUp' name='passwordSignUp' onChange={change}></input>
                         </div>
                         <center >
-                            <button className='glow' onClick={signUpClick} type='submit'>SignUp</button>
-                            <button className='glow' onClick={navigateToLogin}>Back(Login)</button>
+                            <button className='' onClick={signUpClick} type='submit'>SignUp</button>
+                            <button className='' onClick={navigateToLogin}>Back(Login)</button>
                         </center>
                     </div>
                 </form>
