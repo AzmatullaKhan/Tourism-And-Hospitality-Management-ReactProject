@@ -1,5 +1,5 @@
 const AndhraPradesh = [
-    {id: 1, pic: require("./images/popular1.jpg"),placeName:"Guntur", innerHotels:[
+    {id: 1, pic: require("./images/popular1.jpg"),placeName:"Guntur", hospital:"https://smashkarts.io/",  airport:"TrialAP",  railwayStation:"TrialRailwayStation",  busStand:"trialBustand", food:"TrialFood", innerHotels:[
         {id:1,pic:"./images/popular1.jpg", desc:"Trial1", nameHotel:"Trial1", placeHotel:"Trial1", stateHotel:"Trail1", totalAvailableRoomsHotel:"Trial1", costPerNightHotel:"25000", ratingHotel:"Trial1", url:require("./images/popular1.jpg")},
         {id:2,pic:"./images/popular2.jpg", desc:"Trial1", nameHotel:"Trial1", placeHotel:"Trial1", stateHotel:"Trial1", totalAvailableRoomsHotel:"Trial1", costPerNightHotel:"25000", ratingHotel:"Trial1"},
         {id:3,pic:"./images/popular3.jpg", desc:"Trial1", nameHotel:"Trial1", placeHotel:"Trial1", stateHotel:"Trial1", totalAvailableRoomsHotel:"Trial1", costPerNightHotel:"25000", ratingHotel:"Trial1"},
@@ -11,7 +11,7 @@ const AndhraPradesh = [
     ]},
 
 
-    {id: 2,  pic: require("./images/popular2.jpg"), placeName:"Vijayawada",innerHotels:[
+    {id: 2,  pic: require("./images/popular2.jpg"), placeName:"Vijayawada", hospital:"https://www.google.com/maps/search/hospitals+in+vijayawada/@16.4960894,80.626656,13z?entry=ttu",  airport:"https://www.google.com/maps/search/airport+vijayawada/@16.5239776,80.7888131,17z/data=!3m1!4b1?entry=ttu",  railwayStation:"https://www.google.com/maps/search/railwaystation+vijayawada/@16.5241311,80.7089865,12z/data=!3m1!4b1?entry=ttu",  busStand:"https://www.google.com/maps/search/bus+station+vijayawada/@16.5093216,80.6161059,14z/data=!3m1!4b1?entry=ttu", food:"TrialFood",innerHotels:[
         {id:1,pic:"./images/popular1.jpg", desc:"Trial1", nameHotel:"Trial1", placeHotel:"Trial1", stateHotel:"Trial1", totalAvailableRoomsHotel:"Trial1", costPerNightHotel:"25000", ratingHotel:"Trial1", url:require("./images/popular1.jpg")},
         {id:2,pic:"./images/popular2.jpg", desc:"Trial1", nameHotel:"Trial1", placeHotel:"Trial1", stateHotel:"Trial1", totalAvailableRoomsHotel:"Trial1", costPerNightHotel:"25000", ratingHotel:"Trial1"},
         {id:3,pic:"./images/popular3.jpg", desc:"Trial1", nameHotel:"Trial1", placeHotel:"Trial1", stateHotel:"Trial1", totalAvailableRoomsHotel:"Trial1", costPerNightHotel:"25000", ratingHotel:"Trial1"},

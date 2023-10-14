@@ -7,9 +7,14 @@ import AndhraPradesh, { carouselElements } from "./Data"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 export let innerHotelsPics;
+export let requirements;
 export const Home = () =>{
     const clickHandler=(element)=>{
         const {innerHotels}=element;
+        let {hospital,  airport,  railwayStation, busStand, food}=element;
+        console.log(hospital,  airport,  railwayStation, busStand, food)
+        requirements={hospital,  airport,  railwayStation, busStand, food}
+        // alert(requirements)
         innerHotelsPics={innerHotels}
         navigate('/hotels')
     }
