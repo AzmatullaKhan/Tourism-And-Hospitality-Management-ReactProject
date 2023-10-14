@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { bookingUSerDetails } from "./BookPage";
 import { useState } from "react";
-import { desc1 } from "./Home";
+import { desc1 } from "./Hotels";
 
 export const PaymentPage = () =>{
     
@@ -135,7 +135,7 @@ export const PaymentPage = () =>{
                     <input type="text" className="payment-input glow" id="totalCostOfHotelPayment" readOnly></input>
                 </div>
                 <div className="center">
-                    <button className="glow" onClick={handleConfirm} id="paymentConfirm">Confirm</button>                    
+                    <button className="" onClick={handleConfirm} id="paymentConfirm">Confirm</button>                    
                     <button className="glow" onClick={handlePay} id='paymentPay' style={{display:"none"}}>PAY</button>
                  </div>
                  <button onClick={handleBack}>back</button>

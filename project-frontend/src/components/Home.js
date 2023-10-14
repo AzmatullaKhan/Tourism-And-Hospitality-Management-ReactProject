@@ -3,15 +3,15 @@ import { useNavigate } from "react-router-dom"
 import { getData, handleLogout, isLoggedIn } from "./Login"
 import './zcss.css'
 import { useRef } from "react"
-import trialElements, { carouselElements } from "./Data"
+import AndhraPradesh, { carouselElements } from "./Data"
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-export let desc1;
+export let innerHotelsPics;
 export const Home = () =>{
     const clickHandler=(element)=>{
-        const {id,  pic, desc, nameHotel, placeHotel, stateHotel, totalAvailableRoomsHotel, costPerNightHotel, ratingHotel, url}=(element);
-         desc1={id,  pic, desc, nameHotel, placeHotel, stateHotel, totalAvailableRoomsHotel, costPerNightHotel, ratingHotel, url}
-        navigate('/bookPage')
+        const {innerHotels}=element;
+        innerHotelsPics={innerHotels}
+        navigate('/hotels')
     }
      const carouselRef= useRef(null);
     const scrollAmount = 248;
@@ -35,10 +35,13 @@ export const Home = () =>{
                                 {elements.map((element) => (
                                 <li key={element.id}>
                                 <div className="show-desc" onClick={() => clickHandler(element)}>
-                                    <img src={element.pic} alt={element.id} className="image"/>
-                                    <div className="hidden-desc">
-                                        <h1 style={{backgroundColor:"black"}}>{element.desc}</h1>
+                                    <div style={{backgroundImage:`url(${element.pic})`, backgroundSize:"cover"}} className="image">
+                                        <h1>{element.placeName}</h1>
                                     </div>
+                                    {/* <img src={element.pic} alt={element.id} className="image"/> */}
+                                    {/* <div className="hidden-desc">
+                                        <h1 style={{backgroundColor:"black"}}>{element.desc}</h1>
+                                    </div> */}
                                 </div>
                                 </li>
                                 
@@ -119,7 +122,8 @@ export const Home = () =>{
         <div>
             <div className="home-main">
                 <div className="navbar" id="navbarr">
-                    <button className="home-button" onClick={handleHomeClick}>LOGO</button>
+                    <div style={{backgroundImage:`url(${require("./images/balaji.jpg")})`, height:"32px", width:"32px", backgroundSize:"cover", marginTop:"16px", marginLeft:"12px"}} className="home-button"onClick={handleHomeClick}>
+                    </div>
                     <div style={{display:"flex"}}>
                         <img src={require("./images/search.png")} style={{height:"32px", width:"32px", marginTop:"18px"}} alt="search-icon"/>
                         <input type="text" placeholder="Search here" className="home-search" onKeyUp={search}></input>
@@ -134,7 +138,7 @@ export const Home = () =>{
                         {
                             isLoggedIn? 
                             (<button className="home-button " onClick={handleData}>Profile</button>):
-                            (<button className="home-button " onClick={handleSignIn}>SignIn</button>)
+                            (<button className="home-button " onClick={handleSignIn}>SignUp</button>)
                         }
                         <button className="home-button " onClick={handleAbout}>about</button>
                         <button className="home-button " onClick={handleHelp}>help</button>
@@ -175,8 +179,7 @@ export const Home = () =>{
                 </div>
                 <div id="states-list">
                     <center>   
-                        {StateHolder(trialElements, "Andhra Pradesh1")}
-                        {StateHolder(trialElements, "T Pradesh2")}
+                        {StateHolder(AndhraPradesh, "Andhra Pradesh")}
                     </center>
                 </div>
             </div>

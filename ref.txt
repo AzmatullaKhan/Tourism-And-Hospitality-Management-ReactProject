@@ -440,3 +440,46 @@ document.getElementById('submit-button').onclick = async () => {
                             <span className="visually-hidden">Next</span>
                         </button>
                         </div> 
+
+
+
+
+
+                        {/* <div className="hotel-main">
+                <button className="hotel-nav-btn"
+                    onClick={() => {
+                    const container = Ref.current;
+                    container.scrollLeft -= scrollAmount; 
+                    }}
+                    >
+                    <ChevronLeftIcon />
+                </button>
+                <div className='hotel-mini' ref={Ref}>
+                    {innerHotels.map((element) => (
+                    <li key={element.id}>
+                        <div className='show-desc' onClick={() => clickHandler(element)}>
+                            <img src={require(`${element.pic}`)} alt={element.id} className="hotel-image"/>
+                            <div className="hidden-desc">
+                                <h1 style={{backgroundColor:"black"}}>{element.desc}</h1>
+                            </div>
+                        </div>
+                    </li>
+                    ))}
+                </div>
+                <button className="hotel-nav-btn"
+                    onClick={() => {
+                    const container = Ref.current;
+                    container.scrollLeft += scrollAmount; 
+                    }}
+                    >
+                    <ChevronRightIcon />
+                </button>
+            </div> */}
+
+
+    //         <div className='show-desc' onClick={() => clickHandler(innerHotels[0])}>
+    //     <img src={require(`${innerHotels[0].pic}`)} alt={innerHotels[0].id} className="hotel-image"/>
+    //     <div className="hidden-desc">
+    //         <h1 style={{backgroundColor:"black"}}>{innerHotels[0].desc}</h1>
+    //     </div>
+    // </div>
