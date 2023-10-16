@@ -3,6 +3,7 @@ import './zcss.css'
 import { useNavigate} from 'react-router-dom';
 
 export let isLoggedIn=false;
+export let userDetails;
 export const handleLogout = () =>{
     window.location.reload();
     isLoggedIn=false;
@@ -39,6 +40,8 @@ const LoginPage = () =>{
         let {emailSignUp}= data;
         if(emailSignUp!=null && emailSignUp === login.emailSignUp){
             isLoggedIn=true;
+            let {name, emailSignUp}=data;
+            userDetails={name, emailSignUp}
             navigate('/');
         }
         else{
@@ -48,6 +51,7 @@ const LoginPage = () =>{
     return(
         <div>
             <div className="main">
+            <div style={{backgroundImage:`url(${require("./images/balaji.jpg")})`, height:"52px", width:"52px", backgroundSize:"cover", marginTop:"16px", marginLeft:"12px", position:"relative",top:"-120px", left:"-720px"}} className="home-button" onClick={()=>{navigate('/')}}></div>
                 <form>
                     <div className='mini-main'>
                         <div style={{margin:"8px 12px 20px 12px"}} className=''>

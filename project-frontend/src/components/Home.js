@@ -8,6 +8,7 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 export let innerHotelsPics;
 export let requirements;
+export let data;
 export const Home = () =>{
     const clickHandler=(element)=>{
         const {innerHotels}=element;
@@ -86,9 +87,9 @@ export const Home = () =>{
     const handleSignIn = () =>{
         navigate('/signUp');
     }
-    const d= getData();
     const handleData = ()=>{
-        alert(d);
+        data= getData();
+        navigate('/profile')
     }
     const handleAbout=()=>{
         navigate('/about')
@@ -96,9 +97,9 @@ export const Home = () =>{
     // const handleBookPage=()=>{
     //     navigate('./bookPage')
     // }
-    const handleHelp=()=>{
-        navigate('/help')
-    }
+    // const handleHelp=()=>{
+    //     navigate('/help')
+    // }
     const search=(e)=>{
         const search=e.target.value.toUpperCase();
         const items=document.getElementById('states-list')
@@ -146,7 +147,7 @@ export const Home = () =>{
                             (<button className="home-button " onClick={handleSignIn}>SignUp</button>)
                         }
                         <button className="home-button " onClick={handleAbout}>about</button>
-                        <button className="home-button " onClick={handleHelp}>help</button>
+                        {/* <button className="home-button " onClick={handleHelp}>help</button> */}
                         <button className="home-button  icon" id="nav" onClick={navFunction}>click</button>
                     </div>
                 </div>
@@ -185,6 +186,8 @@ export const Home = () =>{
                 <div id="states-list">
                     <center>   
                         {StateHolder(AndhraPradesh, "Andhra Pradesh")}
+                        {StateHolder(AndhraPradesh, "Telanngana")}
+                        {StateHolder(AndhraPradesh, "Jammu Kashmir")}
                     </center>
                 </div>
             </div>

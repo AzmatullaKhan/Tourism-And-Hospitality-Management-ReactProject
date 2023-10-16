@@ -75,6 +75,7 @@ const SignUpPage = () =>{
     return(
         <div>
             <div className="main ">
+            <div style={{backgroundImage:`url(${require("./images/balaji.jpg")})`, height:"52px", width:"52px", backgroundSize:"cover", marginTop:"16px", marginLeft:"12px", position:"relative",top:"-120px", left:"-720px"}} className="home-button" onClick={()=>{navigate('/')}}></div>
                 <form>
                     <div className='mini-main '>
                         <div style={{margin:"8px 12px 16px 12px"}}>

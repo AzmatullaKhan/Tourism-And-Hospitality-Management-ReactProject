@@ -109,7 +109,7 @@ button{
   display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 618px) {
   .navbar button:not(:first-child) {display: none;}
   .navbar button.icon {
     float: right;
@@ -265,7 +265,7 @@ p{
 }
 .about-main{
   background-image: linear-gradient(#84cdf8, #53a7eb , #d0e9f7, #db8c8c);
-  height:180vh;
+  height:210vh;
   width:100vw;
   padding:40px;
   box-sizing: border-box;
@@ -331,9 +331,9 @@ p{
   border-radius: 120px;
 }
 a{
-  color:#fff;
+  font-family:cursive;
   font-size: 20px;
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color:#000;
   text-decoration: none ;
 }
 .about-groupLogo{
@@ -505,7 +505,7 @@ a{
   display: none;
 }
 .hotel-image{
-  height:222px;
+  height:210px;
   width:226px;
   border-radius: 12px;
   margin:auto 12px auto 12px; 
@@ -559,10 +559,44 @@ a{
 .hotel-side{
   height:80px;
   width:90%;
-  border-style: solid;
+  /* border-style: solid;
   border-color: #000;
-  border-width: 2px;
+  border-width: 2px; */
   display: flex;
   justify-content:space-evenly;
   align-items: center;
+  position: relative;
+  top:-40px;
+  outline:none;
+}
+.profile-main{
+  background-image: linear-gradient(#84cdf8, #97c7ee , #d0e9f7);
+  height: 100vh;
+  width: 100vw;
+  padding:50px;
+  box-sizing: border-box;
+  display: flex;
+}
+.user-profile{
+  height:700px;
+  width:600px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #000;
+  padding:50px;
+  box-sizing: border-box;
+  margin-right:20px
+}
+.flex-p{
+  display: flex;
+}
+.bookings{
+  height:700px;
+  width:600px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000;
+  padding:10px;
+  box-sizing: border-box;
+  margin-right:20px
 }

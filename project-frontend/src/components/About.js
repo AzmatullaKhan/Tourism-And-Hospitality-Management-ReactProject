@@ -9,6 +9,7 @@ export const AboutPage=()=>{
         <div>
             <div className='about-main'>
                 <div className='about-mini-main'>
+                <div style={{backgroundImage:`url(${require("./images/balaji.jpg")})`, height:"52px", width:"52px", backgroundSize:"cover", marginTop:"16px", marginLeft:"12px", position:"relative", left:"-720px"}} className="home-button" onClick={()=>{navigate('/')}}></div>
                     <h1 className='payment-head'>TOURIST AND HOSPITALITY MANAGEMENT</h1>
                     <div className='about-groupLogo'></div>
                     <h1>MEET OUR TEAM</h1>

@@ -27,7 +27,7 @@ export const BookPage1=()=>{
             <div className="book-main">
                 <div className='book-mini'>
                     <div className='book-mini-mini1'>
-                        <div className="book-order">
+                        <div className="book-order" style={{marginTop:"-26px"}}>
                             <div className='flex'>
                                 <p id='name'> Name of the Hotel: </p>
                                 <p>{desc1.nameHotel}</p>
@@ -62,7 +62,7 @@ export const BookPage1=()=>{
                             </div>
                             <div className='flex'>
                                 <label htmlFor='numberOfPeopleHotel' className='lab'>Number of members:</label>
-                                <input type='text' className='book-input' id='numberOfPeopleHotel' placeholder='Number of people including kids' onChange={onChange} style={{marginLeft:"24px"}}></input>
+                                <input type='text' className='book-input' id='numberOfPeopleHotel' placeholder='Number of people including kids' onChange={onChange} style={{marginLeft:"22xpx"}}></input>
                             </div>
                             <button className=' ' onClick={handleBack}>Back</button>
                             <button className=' ' onClick={handleProceedPay}>Proceed to Pay</button>

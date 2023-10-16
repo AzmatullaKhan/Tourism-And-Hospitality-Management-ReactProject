@@ -6,8 +6,9 @@ import {Routes, Route} from 'react-router-dom';
 import { PaymentPage } from './components/Payment';
 import { AboutPage } from './components/About';
 import { BookPage1 } from './components/BookPage';
-import { Help } from './components/Help';
+// import { Help } from './components/Help';
 import { Hotels } from './components/Hotels';
+import { Profile } from './components/Profile';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
         <Route path='/payment' element={<PaymentPage />} />
         <Route path='/about' element={<AboutPage />}/>
         <Route path='/bookPage' element={<BookPage1 />}></Route>
-        <Route path='/help' element={<Help />}></Route>
+        <Route path='/profile' element={<Profile />}></Route>
+        {/* <Route path='/help' element={<Help />}></Route> */}
         <Route path='/hotels' element={<Hotels />}></Route>
         <Route path='/' element={<Home />}></Route>
       </Routes>

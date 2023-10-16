@@ -22,7 +22,7 @@ export const Hotels=()=>{
     return(
         <div>
             <div className="hotel-main">
-                <h1 style={{marginLeft:"28px", marginTop:"60px"}}>Hotels Availble in {innerHotels[0].stateHotel}</h1>
+                <h1 style={{marginLeft:"28px", marginTop:"30px"}}>Hotels Availble in {innerHotels[0].stateHotel}</h1>
                 <div>
                     <div className='hotel-mini'>
                         <div className='show-desc' onClick={() => clickHandler(innerHotels[0])}>
