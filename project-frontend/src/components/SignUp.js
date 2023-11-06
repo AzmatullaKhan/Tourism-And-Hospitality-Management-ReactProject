@@ -49,7 +49,7 @@ const SignUpPage = () =>{
         }
         else if(isValidEmail(emailSignUp) && isValidPassword(passwordSignUp)){
             // const response=
-            await fetch('http://localhost:5000/signUpServer/addSignUp',{
+            await fetch('https://bas-travels.onrender.com/signUpServer/addSignUp',{
                 method: 'POST',
                 body: JSON.stringify(signUp),
                 headers: {
@@ -75,7 +75,7 @@ const SignUpPage = () =>{
     return(
         <div>
             <div className="main ">
-            <div style={{backgroundImage:`url(${require("./images/balaji.jpg")})`, height:"52px", width:"52px", backgroundSize:"cover", marginTop:"16px", marginLeft:"12px", position:"relative",top:"-120px", left:"-720px"}} className="home-button" onClick={()=>{navigate('/')}}></div>
+            <div style={{backgroundImage:`url(${require("./images/logo-png.png")})`, height:"52px", width:"52px", backgroundSize:"cover", marginTop:"16px", marginLeft:"12px", position:"relative",top:"-120px", left:"-720px"}} className="home-button" onClick={()=>{navigate('/')}}></div>
                 <form>
                     <div className='mini-main '>
                         <div style={{margin:"8px 12px 16px 12px"}}>

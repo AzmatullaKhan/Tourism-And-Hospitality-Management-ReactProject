@@ -8,7 +8,7 @@ export const Profile=()=>{
         let num=document.getElementById('numberOfCustomer').textContent;
         let data2={"numberOfCustomerPayment":String(num)}
         
-        const res=await fetch("http://localhost:5000/paymentServer/getPayments",{
+        const res=await fetch("https://bas-travels.onrender.com/paymentServer/getPayments",{
             method: 'POST',
             body: JSON.stringify(data2),
             headers: {

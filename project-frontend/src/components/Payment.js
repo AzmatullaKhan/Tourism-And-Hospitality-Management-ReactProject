@@ -68,7 +68,7 @@ export const PaymentPage = () =>{
         setPaymentFormDetails();
     }
     const handlePay= async()=>{
-        await fetch("http://localhost:5000/paymentServer/addPayment",{
+        await fetch("https://bas-travels.onrender.com/paymentServer/addPayment",{
         method: 'POST',
         body: JSON.stringify(paymentForm),
         headers: {

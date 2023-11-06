@@ -128,7 +128,7 @@ export const Home = () =>{
         <div>
             <div className="home-main">
                 <div className="navbar" id="navbarr">
-                    <div style={{backgroundImage:`url(${require("./images/balaji.jpg")})`, height:"32px", width:"32px", backgroundSize:"cover", marginTop:"16px", marginLeft:"12px"}} className="home-button"onClick={handleHomeClick}>
+                    <div style={{backgroundImage:`url(${require("./images/logo-png.png")})`, height:"32px", width:"32px", backgroundSize:"cover", marginTop:"16px", marginLeft:"12px"}} className="home-button"onClick={handleHomeClick}>
                     </div>
                     <div style={{display:"flex"}}>
                         <img src={require("./images/search.png")} style={{height:"32px", width:"32px", marginTop:"18px"}} alt="search-icon"/>
