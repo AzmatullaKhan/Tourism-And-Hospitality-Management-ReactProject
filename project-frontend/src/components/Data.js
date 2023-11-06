@@ -60,7 +60,7 @@ const AndhraPradesh = [
 export default AndhraPradesh;
 export const lements = [
     {id: 1,  pic: require("./images/popular1.jpg"), desc:"Trial1", nameHotel:"Trial1", placeHotel:"Trial1", stateHotel:"Trial1", totalAvailableRoomsHotel:"Trial1", costPerNightHotel:"25000", ratingHotel:"Trial1" },
-    {id: 2,  pic: require("./images/popular2.jpg"), desc:"Trial2", nameHotel:"Trial2", placeHotel:"Trial2", stateHotel:"Trial2", totalAvailableRoomsHotel:"Trial2", costPerNightHotel:"25000", ratingHotel:"Trial2" },
+    {id: 2,  pic: require("./images/popular2.jpg"), desc:"Trial2", nameHotel:"Triavb  l2", placeHotel:"Trial2", stateHotel:"Trial2", totalAvailableRoomsHotel:"Trial2", costPerNightHotel:"25000", ratingHotel:"Trial2" },
     {id: 3,  pic: require("./images/popular3.jpg"), desc:"Trial3", nameHotel:"Trial3", placeHotel:"Trial3", stateHotel:"Trial3", totalAvailableRoomsHotel:"Trial3", costPerNightHotel:"25000", ratingHotel:"Trial3" },
     {id: 4,  pic: require("./images/popular1.jpg"), desc:"Trial4", nameHotel:"Trial4", placeHotel:"Trial4", stateHotel:"Trial4", totalAvailableRoomsHotel:"Trial4", costPerNightHotel:"25000", ratingHotel:"Trial4" }
 ]
