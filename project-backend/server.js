@@ -12,7 +12,7 @@ const port=5000;
 server.use(cors());
 server.use(express.json());
 server.use(bodyParser.json());
-let url='mongodb+srv://azmatulla:4356@trail1.jazekbs.mongodb.net/';
+let url='YOUR URL HERE';
 
 mongoose.connect(url).then(()=>{server.listen(port)})
 .then(()=>{console.log(`connect to ${port}`)})
